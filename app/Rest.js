@@ -20,7 +20,7 @@ class Rest{
             //On précise la méthode
             type: 'PUT',
             //On fait la conversation des "data" en chaine de 
-            //caractère contrairement à .get et .post
+            //caractère afin de les envoyer sur le serveur. Sauf pour .get et .post
             
             data: JSON.stringify(data)
         })
@@ -32,7 +32,7 @@ class Rest{
             //On précise la méthode
             type: 'DELETE',
             //On fait la conversation des "data" en chaine de 
-            //caractère
+            //caractère afin de les envoyer sur le serveur. Sauf pour .get et .post
             data: JSON.stringify(data)
         })
     }

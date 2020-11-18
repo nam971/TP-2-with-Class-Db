@@ -1,7 +1,7 @@
 <?php
 
 //include_once $_SERVER['DOCUMENT_ROOT'] . '\cda\TP\Mon TP\TP 2 Single Page + BDD + REST + CLASS DB\rest\Db.php';
-//require_once('Db.php');
+require_once('Db.php');
 switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
         $_get = validate_request($_GET);
@@ -27,23 +27,28 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         }
         $fields = isset($_post['fields']) ? $_post['fields'] : null;
         echo json_encode($_post);
-        //echo Db::insert($table, $fields);
+        echo Db::insert($table, $fields);
         break;
     case 'PUT':
+        //On decode les données chaine de caractere reçus pour 
+        //les traiter en php
         $_put = json_decode(file_get_contents('php://input'), true);
         $_put = validate_request($_put);
         $table = isset($_put['table']) ? $_put['table'] : null;
         $id = isset($_put['id']) ? $_put['id'] : null;
         //obligatoires
-        if($table == null || $id == null){
+        if($table == null || $id == null){            
             echo json_encode(false);
             break;
         }
         $fields = isset($_put['fields']) ? $_put['fields'] : null;
-        //echo json_encode($_put);
+        //On ré-encode les données en chaine de caractère pour les renvoyer
+        echo json_encode($_put);
         echo Db::update($table, $id, $fields);
         break;
     case 'DELETE':
+       //On decode les données chaine de caractere reçus pour 
+        //les traiter en php 
         $_del = json_decode(file_get_contents('php://input'), true);
         $_del = validate_request($_del);
         $table = isset($_del['table']) ? $_del['table'] : null;
@@ -53,7 +58,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             echo json_encode(false);
             break;
         }
-        //echo json_encode($_del);
+        //On ré-encode les données en chaine de caractère pour les renvoyer
+        echo json_encode($_del);
         echo Db::delete($table, $id);
         break;
 }

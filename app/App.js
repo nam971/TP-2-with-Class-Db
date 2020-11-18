@@ -1,6 +1,7 @@
 class App {
 
     static start() {
+        //onpopstate permet qu'en cas de changement d'url, la fonction entre crochet s'exécutera
         window.onpopstate = () => {
             App.browse();
         }

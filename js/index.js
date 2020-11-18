@@ -1,41 +1,42 @@
 //App.start();
-
+// .get = OK   .post =Nok    .put = Nok    .delete = OK
 //Test API Rest
 
-// Rest.get({
-//     table: "product",
-//     //id: 1,
-//     //where: "active = false",
-//     //orderby: "title ASC"
-// }).done((resp) => {
-//     $('#main').hide().html(resp).fadeIn();
-// })
+/*Rest.get({
+    table: "product",
+    id: 3,
+    where: "active = true",
+    orderby: "title ASC"
+}).done((resp) => {
+    $('#main').hide().html("Select : " + resp).fadeIn();
+})*/
 
-Rest.post({
+/*Rest.post({
     table: "product",
     fields: {
-        title: "titre du produit",
+        title: "camionn",
         active: true,
         onsale: false
     }
 }).done((resp) => {
     $('#main').hide().html("Insert : " + resp).fadeIn();
-})
+})*/
 
-// Rest.put({
-//     table: "product",
-//     id: 1,
-//     fields: {
-//         //id : 2,
-//         title: "nouveau titre 2"         
-//     }
-// }).done((resp) => {
-//     $('#main').hide().html(resp).fadeIn();
-// })
+/*Rest.put({
+    table: "product",
+    id: 3,
+    fields: {
+        title: "CAMION",
+        active: true,
+        onsale: false         
+    }
+}).done((resp) => {    
+    $('#main').hide().html("Update : " + resp).fadeIn();
+})*/
 
-// Rest.delete({
-//     table: "product",
-//     id: 125
-// }).done((resp) => {
-//     $('#main').hide().html(resp).fadeIn();
-// })
+/*Rest.delete({
+    table: "product",
+    id: 4
+}).done((resp) => {
+    $('#main').hide().html("Delete : " + resp).fadeIn();
+})*/

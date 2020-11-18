@@ -39,7 +39,7 @@ class Db
             Db::$stmt = $stmt;
             $result = $stmt->execute($params);
         } catch (PDOException $e) {
-            var_dump($e);
+            //var_dump($e);
             exit();
         }
         return $result;
